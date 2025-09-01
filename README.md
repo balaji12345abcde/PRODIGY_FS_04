@@ -46,7 +46,7 @@ chat_app/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/real-time-chat-app.git
+git clone https://github.com/PRODIGY_FS_04/main.git
 cd real-time-chat-app
 ```
 
