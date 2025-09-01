@@ -102,6 +102,12 @@ Now open your browser at:
 
 ## 📸 Screenshots
 
+![Image](https://github.com/user-attachments/assets/0dc01867-95c5-4d2c-af25-9c513f6bea99)
+![Image](https://github.com/user-attachments/assets/973b6fd2-b8f4-4b73-bbf9-d8b69fc19e5b)
+
+![Image](https://github.com/user-attachments/assets/08d7da66-4eca-429b-988a-86335e13d6cf)
+![Image](https://github.com/user-attachments/assets/650bf058-45a5-47ca-a733-3a3ae45a37bc)
+![Image](https://github.com/user-attachments/assets/7d80038d-4bfd-4021-aac6-b4a26d884b51)
 
 ## 🤝 Contributing
 
@@ -116,7 +122,3 @@ This project is licensed under the **MIT License** – feel free to use and modi
 ---
 
 ⚡ **Developed as part of Task-04 Internship Project (Prodigy Infotech)**
-
----
-
-Do you also want me to generate a **`requirements.txt` file** for this project (with Django, Channels, Daphne, etc.) so that you can directly push it along with the README to GitHub?
