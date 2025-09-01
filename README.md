@@ -1,8 +1,4 @@
 # PRODIGY_FS_04
-Here’s a **GitHub-ready README.md** for your **Task-04: Real-Time Chat Application** using **Django Channels, Daphne, HTML, CSS, and JavaScript**:
-
----
-
 # 📨 Real-Time Chat Application
 
 This project is a **real-time chat application** built with **Django Channels** and **WebSockets** to enable instant messaging between users. It supports **user authentication, chat rooms, private messaging**, and can be extended with optional features like **chat history, notifications, and file sharing**.
@@ -102,12 +98,10 @@ Now open your browser at:
 
 ## 📸 Screenshots
 
-![Image](https://github.com/user-attachments/assets/0dc01867-95c5-4d2c-af25-9c513f6bea99)
-![Image](https://github.com/user-attachments/assets/973b6fd2-b8f4-4b73-bbf9-d8b69fc19e5b)
-
 ![Image](https://github.com/user-attachments/assets/08d7da66-4eca-429b-988a-86335e13d6cf)
-![Image](https://github.com/user-attachments/assets/650bf058-45a5-47ca-a733-3a3ae45a37bc)
 ![Image](https://github.com/user-attachments/assets/7d80038d-4bfd-4021-aac6-b4a26d884b51)
+![Image](https://github.com/user-attachments/assets/973b6fd2-b8f4-4b73-bbf9-d8b69fc19e5b)
+![Image](https://github.com/user-attachments/assets/0dc01867-95c5-4d2c-af25-9c513f6bea99)
 
 ## 🤝 Contributing
 
