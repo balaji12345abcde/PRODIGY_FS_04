@@ -100,8 +100,6 @@ Now open your browser at:
 
 ![Image](https://github.com/user-attachments/assets/08d7da66-4eca-429b-988a-86335e13d6cf)
 ![Image](https://github.com/user-attachments/assets/7d80038d-4bfd-4021-aac6-b4a26d884b51)
-![Image](https://github.com/user-attachments/assets/973b6fd2-b8f4-4b73-bbf9-d8b69fc19e5b)
-![Image](https://github.com/user-attachments/assets/0dc01867-95c5-4d2c-af25-9c513f6bea99)
 
 ## 🤝 Contributing
 
