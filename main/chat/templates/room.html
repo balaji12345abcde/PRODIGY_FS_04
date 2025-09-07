@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(to right, blue, purple);
+            display: grid;
+            place-items: center;
+            font-style: italic;
+            max-height: 100rem;
+        }
+
+        h1 {
+            text-shadow: 3px 5px 4px violet;
+            font-weight: bold;
+        }
+
+        .sendercontainer {
+            margin: 10px;
+            display: grid;
+            align-self: start;
+        }
+
+        .receivercontainer {
+            margin: 10px;
+            display: grid;
+            justify-items: end;
+            align-self: end;
+        }
+
+        .chat-box {
+            display: flex;
+            flex-direction: column;
+            border: none;
+            overflow-y: auto;
+            scrollbar-width: none;
+            max-height: 30em;
+            min-height: 25em;
+            padding: 10px;
+            gap: 30px;
+            position: relative;
+            min-width: 50vw;
+            border-radius: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .sender {
+            align-self: start;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
+            background-color: lightgreen;
+            word-wrap: break-word;
+            padding: 10px;
+            box-shadow: 3px 5px 10px 3px black;
+            margin-left: 15px;
+        }
+
+        .receiver {
+            align-self: flex-end;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
+            background-color: white;
+            word-wrap: break-word;
+            margin-right: 15px;
+            padding: 10px;
+            box-shadow: -3px 5px 10px 3px black;
+        }
+
+
+        input {
+            bottom: 0;
+            border: none;
+            height: 5vh;
+            width: 40vw;
+            border-radius: 10px;
+            margin: 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            box-shadow: 3px 5px 10px black;
+        }
+
+        button {
+            bottom: 0;
+            border: none;
+            height: 5vh;
+            width: 10vw;
+            border-radius: 10px;
+            margin-left: 10px;
+            font-weight: bold;
+            box-shadow: 3px 5px 10px black;
+            margin-right: 5px;
+        }
+
+        button:hover {
+            background-color: lawngreen;
+        }
+
+        .avator {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .user {
+            border-radius: 50%;
+            border: none;
+            max-width: 20px;
+            min-width: 20px;
+            min-height: 20px;
+            max-height: 20px;
+            text-align: center;
+            overflow: hidden;
+            background-color: blueviolet;
+            box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .send-buttom {
+            position: fixed;
+            bottom: 10px;
+        }
+
+        .totalcontainer {
+            background-color: rgba(228, 222, 222, 0.8);
+            border-radius: 10px;
+            box-shadow: 5px 5px 50px 10px rgba(248, 246, 246, 0.865);
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to {{roomname}}</h1>
+    <div class="totalcontainer">
+        <div class="chat-box" id="chatcon">
+            {% for mes in message%}
+            {% if mes.sender.lower == user.lower%}
+            <div class="receivercontainer">
+                <div class="avator">
+                    <p>Me</p>
+                    <div class="user" style="background-color:white"></div>
+                </div>
+                <div class="receiver">
+                    {{mes.message}}
+                </div>
+            </div>
+            {% else %}
+            <div class="sendercontainer">
+                <div class="avator">
+                    <div class="user"></div>
+                    <p>{{mes.sender}}</p>
+                </div>
+                <div class="sender"> {{ mes.message }}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="Send-button">
+            <form action="" method="post" id="msg-form">
+                {% csrf_token%}
+                <input type="text" id="message" placeholder="Enter Message">
+                <button>Send</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const socketURL = `ws://${window.location.host}/ws/messages/{{roomname}}/`;
+        console.log("Connection establishing")
+        const socket = new WebSocket(socketURL)
+        //send msg
+        const message_form = document.getElementById("msg-form")
+        message_form.addEventListener("submit", function (event) {
+            event.preventDefault()
+            let message_send = document.getElementById("message");
+            socket.send(
+                JSON.stringify(
+                    {
+                        message: message_send.value,
+                        room_name: "{{roomname}}",
+                        sender: "{{user}}"
+                    }
+                )
+            )
+        });
+        const chatdiv = document.getElementById("chatcon")
+        const scrollToBottom = () => {
+            chatdiv.scrollTop = chatdiv.scrollHeight;
+        }
+        //receive
+        socket.addEventListener("message", (e) => {
+            const data = JSON.parse(e.data)["message"]
+
+            let sender = data["sender"]
+            let content = data["message"]
+            if (sender == "{{user}}") {
+                document.getElementById("message").value = "";
+
+            }
+            if (sender == "{{user}}") {
+                chatdiv.innerHTML += `  <div class="receivercontainer">
+            <div class="avator">
+                <p>Me</p>
+                <div class="user" style="background-color:white"></div>
+            </div>
+            <div class="receiver">
+                ${content}
+            </div>
+        </div>`;
+            }
+            else {
+                chatdiv.innerHTML += `<div class="sendercontainer">
+            <div class="avator">
+                <div class="user"></div>
+                <p>${sender}</p>
+            </div>
+            <div class="sender"> ${content}
+            </div>
+        </div>`;
+            }
+            scrollToBottom();
+        })
+    </script>
+</body>
+
+</html>
