@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            background-color: whitesmoke;
+        }
+
+        #container {
+            margin-top: 50%;
+            display: grid;
+            place-items: center;
+            border: 1px solid black;
+            border-radius: 7px;
+            width: 300px;
+            height: 250px;
+            font-weight: bold;
+            box-shadow: 3px 5px black;
+        }
+
+        input {
+            border: none;
+            border-radius: 5px;
+            width: 250px;
+            height: 30px;
+            box-shadow: 3px 5px black;
+            color: black;
+            font-weight: bold;
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 3px 5px black;
+        }
+
+        label {
+            margin-top: 7px;
+            position: relative;
+            top: 0;
+            left: -25%;
+            text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Home Page</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div id="container">
+            <label>UserName</label>
+            <input type="text" name="user">
+            <label>RoomName</label>
+            <input type="text" name="room">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+
+</html>
