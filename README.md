@@ -100,6 +100,8 @@ Now open your browser at:
 
 ![Image](https://github.com/user-attachments/assets/08d7da66-4eca-429b-988a-86335e13d6cf)
 ![Image](https://github.com/user-attachments/assets/7d80038d-4bfd-4021-aac6-b4a26d884b51)
+<img width="1918" height="1078" alt="Image" src="https://github.com/user-attachments/assets/d8804477-b168-4ddb-be45-ed8c5a499ee5" />
+<img width="1918" height="1078" alt="Image" src="https://github.com/user-attachments/assets/d452a7fb-8007-4bd5-9264-60707abaaee6" />
 
 ## 🤝 Contributing
 
